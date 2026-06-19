@@ -1,0 +1,10 @@
+import AWS from "aws-sdk";
+
+const ec2 = new AWS.EC2();
+
+async function listInstances() {
+  const result = await ec2.describeInstances().promise();
+  console.log(result.Reservations?.length);
+}
+
+listInstances();
